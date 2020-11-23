@@ -1,0 +1,2 @@
+FROM mongo
+COPY ./dump/locations.json /locations.json

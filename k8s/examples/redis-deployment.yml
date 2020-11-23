@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: redis-deployment
+  template:
+    metadata:
+      labels:
+        component: redis-deployment
+    spec:
+      containers:
+        - name: redis
+          image: REPLACE_ME_WITH_YOUR_DOCKER_ID/uscities-redis
+          resources:
+            requests:
+              memory: "24Mi"
+              cpu: "0.1"
+            limits:
+              memory: "24Mi"
+              cpu: "0.1"
+          ports:
+            - containerPort: 6379
